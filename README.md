@@ -1,1 +1,1 @@
-To run the code, place test images in the `input' folder and run `python gabor_detect.py' 
+To run the code, place test images in the `input` folder and run `python gabor_detect.py` 
