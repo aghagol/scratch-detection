@@ -45,9 +45,10 @@ if __name__ == '__main__':
 
 		hxx, hxy, hyy = hessian_matrix(res1, sigma=3)
 		i1, i2 = hessian_matrix_eigvals(hxx,hxy,hyy)
-		ridges = np.maximum(np.abs(i1),np.abs(i2))
+		# ridges = np.maximum(np.abs(i1),np.abs(i2))
+		ridges = np.abs(i2)
 		ridges = (ridges - ridges.min()) / (ridges.max() - ridges.min())
-		ridges = morphology.remove_small_objects(ridges>.3, 200)
+		ridges = morphology.remove_small_objects(ridges>.2, 100)
 		ridges = (ridges * 255).astype(np.uint8)
 
 		cv2.imwrite('out_ridges/' + img_fn, ridges)
